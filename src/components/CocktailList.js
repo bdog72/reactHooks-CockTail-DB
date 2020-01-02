@@ -2,8 +2,27 @@
 //
 import React from 'react';
 
-export default function CocktailList({ cocktails }) {
-  console.log(cocktails);
+import Cocktail from './Cocktail';
 
-  return <h1>cocktail List component</h1>;
+export default function CocktailList({ cocktails, loading }) {
+  if (loading) {
+    return <h2 className="section-title">Loading...</h2>;
+  }
+
+  if (cocktails.length < 1) {
+    return (
+      <h2 className="section-title">No cocktails match your search criteria</h2>
+    );
+  }
+
+  return (
+    <section className="section">
+      <h2 className="section-title">bozo cocktails</h2>
+      <div className="cocktails-center">
+        {cocktails.map(item => {
+          return <Cocktail key={item.id} {...item} />;
+        })}
+      </div>
+    </section>
+  );
 }
