@@ -1,5 +1,7 @@
-import React from "react";
+//
+//
+import React from 'react';
 
 export default function SearchForm() {
-  return <h1>searchform component</h1>;
+  return <h1>search Form component</h1>;
 }
